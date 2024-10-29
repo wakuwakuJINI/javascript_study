@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      
+      let map=[['o','o','o',],
+               ['o','o','o',],
+               ['o','o','o',]
+            ]
+
+        for(i=0; i<map.length; i++){
+            for(j=0; j<map[i].length; j++){
+                document.write(map[i][j])
+            }
+            document.write("<br>")
+        }           
+        // 이까지는 문제 
+
+        //풀이 ->
+        let title =['A','B','C']
+        let position=("B3").split("");
+        
+        let cell= title.indexOf(position[0])
+        map[Number(position[1])-1][cell] = 'x'
+        for(i=0; i<map.length; i++){
+            document.write(
+                map[i].join(" ") + "<br>"
+            )
+        }
+
+
+
+
+        
+
+
+    </script>
+    
+</body>
+</html>

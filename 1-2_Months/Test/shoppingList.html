@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* styles.css */
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        margin: 0;
+        background-color: #f4f4f9;
+      }
+
+      .item-list {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 800px;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .item-list h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .item:last-child {
+        border-bottom: none;
+      }
+
+      .item-image {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      .item-name {
+        font-size: 1em;
+        flex: 2;
+      }
+
+      .item-price {
+        font-size: 1em;
+        flex: 1;
+        text-align: center;
+      }
+
+      .numberInput {
+        width: 50px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 0.9em;
+        flex: 0 0 70px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .item-add {
+        background-color: green;
+        border: none;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;   
+      }
+
+      .item-add:hover {
+        background-color: #141614;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item-list">
+      <h1>Shopping List</h1>
+      <ul id="list">
+        <!-- <li class="item">
+          <img src="IMG/티셔츠.png" alt="Item Image" class="item-image" />
+          <span class="item-name">티셔츠</span>
+          <span class="item-price">10000</span>
+          <input type="number" class="numberInput" min="0"/>
+          <button class="item-add">장바구니</button>
+        </li>
+
+        <li class="item">
+          <img src="IMG/원피스.png" alt="Item Image" class="item-image" />
+          <span class="item-name">원피스</span>
+          <span class="item-price">50000</span>
+          <input type="number" class="numberInput" min="0"/>
+          <button class="item-add">장바구니</button>
+        </li>
+
+        <li class="item">
+          <img src="IMG/모자.png" alt="Item Image" class="item-image" />
+          <span class="item-name">모자</span>
+          <span class="item-price">25000</span>
+          <input type="number" class="numberInput" min="0"/>          
+          <button class="item-add">장바구니</button>
+        </li> -->
+
+        
+      </ul>
+      <p id="result">총 구매금액 : </p>
+    </div>
+
+    <script src="shoppingList.js"></script>
+    
+  </body>
+</html>

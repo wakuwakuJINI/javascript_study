@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간단한 계산기</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .calculator {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .calculator #num1,
+      #num2 {
+        width: 80px;
+        margin: 5px;
+        font-size: 18px;
+        padding: 5px;
+      }
+      .calculator button {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div id="num1">1</div>
+      <div id="num2">3</div>
+      <br />
+      <button id="addBtn">더하기</button>
+      <button id="subtractBtn">뻬기</button>
+      <button id="multiplyBtn">곱하기</button>
+      <button id="divideBtn">나누기</button>
+      <div id="result">결과:</div>
+    </div>
+
+    <script src="caculator.js"></script>
+  </body>
+</html>

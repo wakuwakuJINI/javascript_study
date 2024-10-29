@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화면 레이아웃</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            display: flex;
+            height: calc(100vh - 100px); /* header와 footer 높이를 뺀 값 */
+        }
+        .sidebar-left, .sidebar-right {
+            width: 20%;
+            background-color: #f4f4f4;
+            padding: 10px;
+        }
+        .content {
+            width: 60%;
+            padding: 10px;
+        }
+        .sidebar-left {
+            background-color: #ccc;
+        }
+        .sidebar-right {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>구구단 출력하기</h1>
+    </header>
+    <div class="container">
+        <div class="sidebar-left">
+            <p>왼쪽 사이드바</p>
+        </div>
+        <div class="content">
+            <p>중앙 콘텐츠</p>
+        </div>
+        <div class="sidebar-right">
+            <p>오른쪽 사이드바</p>
+        </div>
+    </div>
+    <footer>
+        <p>Footer</p>
+    </footer>
+    <script>
+        // 자바스크립트를 사용한 추가 기능을 여기에 작성할 수 있습니다.
+    </script>
+</body>
+</html>

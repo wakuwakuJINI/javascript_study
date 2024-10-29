@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자판기</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#vending-machine {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+#products {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.product {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product:hover {
+    background-color: #0056b3;
+}
+
+#display {
+    margin-bottom: 20px;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-around;
+}
+
+#money-input {
+    width: 60%;
+    padding: 5px;
+}
+
+#insert-money {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#insert-money:hover {
+    background-color: #218838;
+}
+
+    </style>
+</head>
+<body>
+    <div id="vending-machine">
+        <h1>자판기</h1>
+        <div id="products">
+            <button class="product" data-price="1000">콜라 - 1000원</button>
+            <button class="product" data-price="800">사이다 - 800원</button>
+            <button class="product" data-price="1500">커피 - 1500원</button>
+        </div>
+        <div id="display">
+            <p id="message">제품을 선택하세요.</p>
+            <p>투입 금액: <span id="current-amount">0</span>원</p>
+        </div>
+        <div id="controls">
+            <input type="number" id="money-input" placeholder="금액 입력">
+            <button id="insert-money">돈 투입</button>
+        </div>
+    </div>
+    <script src="vendingMachine.js"></script>
+</body>
+</html>

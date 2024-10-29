@@ -1,0 +1,42 @@
+<!--
+자판기 만들기
+
+1.첫번째 변수에 음료수 종류받는다(커피,콜라,녹차)
+2.두번째 변수에 돈을 받는다(숫자로 형변환) Number()
+3.커피는 3000 콜라는 20000 녹차는 1000원
+4.받은 돈과 음료수의 가격을 계산하여 거스름돈을 반환한다
+5.다음 메시지를 출력
+6.결과물
+커피를 구매했을때 ->
+커피를 구매하셨습니다. 거스름돈은 2000원입니다
+잘못된 음료를 입력했을때 ->
+잘못 입력하셨습니다.
+
+거스름돈이 음수로 나올경우"돈이 부족합니다" 메시지 띄우기-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let firValue = prompt("음료를 주문하세요(커피,콜라,녹차)");
+        let secValue = prompt("돈을 지불하세요");
+       
+        let money = Number(secValue);
+        
+        let result1 = 
+        (firValue === "커피")?
+        "커피를 구매하셨습니다.거스름돈은" + `${money-3000}`+ "입니다"
+        :"잘못 입력 하셨습니다"
+
+
+        document.write(result1);
+
+    </script>
+    
+</body>
+</html>

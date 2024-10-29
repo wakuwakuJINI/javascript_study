@@ -1,0 +1,33 @@
+/* styles.css */
+
+.app-container {
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.post-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-item h2 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.post-item p {
+  font-size: 14px;
+  color: #333;
+}

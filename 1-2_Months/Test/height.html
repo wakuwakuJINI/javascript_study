@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="height.js"></script> -->
+</head>
+<body>
+    <script>
+        
+        let student_heights = "180 124 165 173 189 169 146";
+        let arr = student_heights.split(" ")
+
+        // let sum = 0;
+        // let max = 0;
+        // let min = 1000;
+        // for (let i=0; i<arr.length; i++) {
+        //     arr[i] = Number(arr[i])
+
+        //     sum += arr[i];
+
+        //     if (max < arr[i]) {
+        //         max = arr[i]
+        //     }
+
+        //     if (min > arr[i]) {
+        //         min = arr[i]
+        //     }
+        // }
+
+        
+        
+        
+        // console.log(arr)
+        // console.log(`총합 : ${sum}`)
+        // console.log(`평균 : ${Math.round(sum / arr.length)}`)
+        // console.log(`최대값1 : ${Math.max(...arr)}`)
+        // console.log(`최대값2 : ${max}`)
+        // console.log(`최소값1 : ${Math.min(...arr)}`)
+        // console.log(`최소값2 : ${min}`)
+        arr.sort()
+        console.log(arr[0])
+        console.log(arr[arr.length-1])
+        console.log(arr.join("-------"))
+
+
+
+    </script>
+</body>
+</html>

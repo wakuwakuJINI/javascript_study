@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let number_1 = prompt("첫번째 숫자를 입력하세요");
+        let number_2 = prompt("두번째 숫자를 입력하세요");
+               
+
+        let num_3 = Number(number_1);
+        let num_4 = Number(number_2);
+        
+              
+        let plus = num_3 + num_4;
+        let minus = num_3 - num_4;
+        let multiply = num_3 * num_4;
+        let devide = num_3 / num_4;
+        let remain = num_3 % num_4;
+
+        document.write("<h1> 연산 결과 </h>");
+        document.write(`<h3>${num_3}+${num_4} = ${plus}</h3>`);
+        document.write(`<h3>${num_3}-${num_4} = ${minus}</h3>`);
+        document.write(`<h3>${num_3}*${num_4} = ${multiply}</h3>`);
+        document.write(`<h3>${num_3}/${num_4} = ${devide}</h3>`);
+        document.write(`<h3>${num_3}%${num_4} = ${remain}</h3>`);
+        
+        
+    </script>
+</body>
+</html>

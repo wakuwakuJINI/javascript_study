@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery3.7.1.js"></script>
+</head>
+<body>
+    <table border="1" id="table" class="table" width="700">
+        <thead>
+        <tr>
+            <th><input type="checkbox" name="checkAll" id="checkAll"></th>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>날짜</th>
+            <th>조회수</th>
+            <th>기능</th>            
+        </tr>
+        </thead>
+        <tbody></tbody>
+       
+    </table>
+    <script type="text/javascript">
+        const data=[
+            {no:1, title:"안녕하세요1", date:"2024-07-31", user:"유진", read:0},
+            {no:2, title:"안녕하세요2", date:"2024-07-31", user:"유진", read:0},
+            {no:3, title:"안녕하세요3", date:"2024-07-31", user:"유진", read:0},
+            {no:4, title:"안녕하세요4", date:"2024-07-31", user:"유진", read:0},
+            {no:5, title:"안녕하세요5", date:"2024-07-31", user:"유진", read:0}
+        ]
+
+       
+        
+        if($("#table").length !== 0){
+            // 첫번째 태그의 모든 내용
+            // $("table").find("th").first().html()
+
+            // 마지막 태그의 텍스트 내용
+            // $("table").find("th").last().text()
+
+            // eq() ; 원하는 순서의 내용 가져온다 
+            // alert($("table").find("th").eq(3).text())
+
+            data.forEach((item)=>{
+                $("table").find("tbody").append(`
+                    <tr align="center">
+                         <td><input type="checkbox" name="seq" id="seq=${item.no}"></td>
+                         <td class="no">${item.no}</td>
+                         <td>${item.title}</td>
+                         <td>${item.user}</td>
+                         <td>${item.date}</td>
+                         <td>${item.read}</td>
+                         <td><input type="button" class="btn" value=기능-"${item.no}"></td>
+                    </tr>
+                `)
+                                
+            })
+            // alert($("table").find("tbody").find('tr').last().find("td").last().text())
+            $(".btn").click(function(){
+                    // alert($(this).val())
+                    // $(this).parent().prev().prev().prev().prev().prev().css("background","red")
+                    // $(this).parent().parent().find(".no").css("color", "#ff0000")
+                    $(this).parents("tr").find(".no").css("color","blue")
+
+            })         
+
+        }
+
+            $("#checkAll").click(function() {
+                if ($(this).prop("checked")){
+
+                    $("input[name=seq]").each(function() {
+                        $(this).prop("checked",true)
+                    })
+                }else{
+                    $("input[name=seq]").each(function() {
+                        $(this).prop("checked",false)
+                })
+            }
+        })
+
+           
+    </script>
+</body>
+</html>

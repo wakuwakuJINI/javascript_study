@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자판기</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.vending-machine {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+#products {
+    margin-bottom: 20px;
+}
+
+.product {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#status {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <div class="vending-machine">
+        <h1>자판기</h1>
+        <div id="products">
+            <!-- 제품 목록 -->
+        </div>
+        <div id="display">
+            <input type="text" id="moneyInput" placeholder="돈을 넣으세요">
+            <button onclick="insertMoney()">넣기</button>
+        </div>
+        <div id="status"></div>
+    </div>
+    <script src="vendingMachine_01.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+
+#### 현재날짜 가져오기
+
+```
+let today = new Date();
+```
+\
+#### 특정 날짜 가져오기
+
+```
+let date1 = new Date("2024-01-01");
+//년,월,일,시,분,
+let date2 = new Date(2024, 6, 16, 12, 0, 0);
+```
+
+#### 날짜 객체 메서드
+
+```
+date2 = new Date(2024, 6, 16, 12, 0, 0);
+
+  
+
+console.log(date2.getFullYear()); // 2024
+
+console.log(date2.getMonth()); // 6 (7월, 월은 0부터 시작)
+
+console.log(date2.getDate()); // 16
+
+console.log(date2.getDay()); // 2 (요일, 일요일은 0)
+
+console.log(date2.getHours()); // 12
+
+console.log(date2.getMinutes()); // 0
+
+console.log(date2.getSeconds()); // 0
+
+console.log(date2.getMilliseconds());
+```
+
+#### 날짜 설정하기
+
+```
+let date = new Date();
+
+date.setFullYear(2024);
+date.setMonth(6); // 7월
+date.setDate(16);
+date.setHours(12);
+date.setMinutes(0);
+date.setSeconds(0);
+date.setMilliseconds(0);
+
+console.log(date); // 2024-07-16T03:00:00.000Z (UTC 기준)
+
+```
+
+#### 날짜 계산하기
+
+숫자와 계산하면 특정날짜를 더하거나 뺄 수 있다.
+
+```
+date.setDate(date.getDate() + 1);
+
+date.setMonth(date.getMonth() + 1);
+
+date.setFullYear(date.getFullYear() + 1);
+
+console.log(date);
+```
+
+현재날짜에서 특정날짜까지 며칠남았는지 계산 가능하다.  
+
+```
+let diff = date2 - date1;
+
+console.log(diff); // 1209600000 (밀리초)
+
+
+// 밀리초를 이용하여 시간을 구하는 방법
+
+let diffSeconds = diff / 1000;
+
+let diffMinutes = diffSeconds / 60;
+
+let diffHours = diffMinutes / 60;
+
+let diffDays = diffHours / 24;
+
+// 남은 일수 구하기
+let remainingDays = Math.ceil(diff / (1000 * 60 * 60 * 24)); // 올림 함수
+console.log(remainingDays); // 14
+```
