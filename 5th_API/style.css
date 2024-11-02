@@ -1,5 +1,5 @@
 body {
-  font-family: "Pretendard";
+  font-family: "Pretendard Variable";
 }
 .head-line {
   margin-top: 1em;
@@ -18,6 +18,14 @@ body {
   border-bottom: 4px solid black;
   border-bottom-style: double;
 }
+.form-control {
+  width: 30%;
+}
+.form-control:focus {
+  border-color: black;
+  box-shadow: none;
+}
+
 .menus button {
   border: none;
   background: none;
@@ -38,7 +46,6 @@ body {
 .search-area {
   margin-top: 5px;
   display: flex;
-  justify-content: start;
 }
 .search {
   border: 1px solid black;

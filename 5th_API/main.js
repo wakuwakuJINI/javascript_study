@@ -7,7 +7,7 @@ const menus = document.querySelectorAll(".menus button");
 menus.forEach((menu) =>
   menu.addEventListener("click", (e) => getNewsByCategory(e))
 );
-
+/*
 document
   .getElementById("search-input")
   .addEventListener("keydown", function (e) {
@@ -17,7 +17,7 @@ document
       this.value = "";
     }
   });
-
+*/
 document.getElementById("search-input").addEventListener("focus", function () {
   this.value = "";
 });
@@ -32,7 +32,7 @@ let page = 1;
 const pageSize = 10; //한페이지에 보여주고자 하는 컨텐츠 수
 const groupSize = 5; //한페이지에 보여주고자하는 페이지 버튼 개수 ex) 1~5:1그룹/6~10:2그룹)
 
-//리팩토링하면서 반복되는 async,await 부분 새로운 함수로 만들어주고, try-catch로 변경.
+//반복되는 async,await 부분 새로운 함수로 만들어주고, try-catch로 변경.
 const getNews = async () => {
   try {
     url.searchParams.set("page", page); //=> &page={page}
@@ -76,16 +76,26 @@ const getNewsByCategory = async (e) => {
 //검색창에 keyword 입력했을때 해당하는 뉴스 나오는 함수
 const getNewsByKeyword = async () => {
   const keyword = document.getElementById("search-input").value;
-  const from = document.getElementById("date-input").value; // user가 입력한 날짜
+  url = new URL(
+    `http://localhost:3000/everything?&q=${keyword}&apiKey=${API_KEY}`
+  );
+
+  getNews();
+};
+//날짜선택했을때 뉴스 나오는 함수
+const getNewsByDate = async (e) => {
+  const keyword = $("#search-input").val();
+  const date = $("#datePicker").datepicker("getDate");
+  const formattedDate = moment(date).format("YYYY-MM-DD");
 
   url = new URL(
-    `http://localhost:3000/everything?q=${keyword}&from=${from}&apiKey=${API_KEY}`
+    `http://localhost:3000/everything?keyword=${keyword}&from=${formattedDate}&to=${formattedDate}&apiKey=${API_KEY}`
   );
+
   getNews();
 };
 
 const render = () => {
-  console.log(newsList);
   const newsHTML = newsList
     .map(
       (news) => `<div class="row news">
