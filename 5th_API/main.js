@@ -7,17 +7,18 @@ const menus = document.querySelectorAll(".menus button");
 menus.forEach((menu) =>
   menu.addEventListener("click", (e) => getNewsByCategory(e))
 );
-/*
-document
-  .getElementById("search-input")
-  .addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      getNewsByKeyword();
-      e.preventDefault();
-      this.value = "";
-    }
-  });
-*/
+
+// document
+//   .getElementById("searchButton")
+//   .addEventListener("keydown", function (e) {
+//     if (e.key === "Enter") {
+//       getNewsByKeyword();
+//       getNewsByDate();
+//       e.preventDefault();
+//       this.value = "";
+//     }
+//   });
+
 document.getElementById("search-input").addEventListener("focus", function () {
   this.value = "";
 });

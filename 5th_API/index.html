@@ -50,16 +50,7 @@
             class="form-control col-3 m-2"
             placeholder="choice Date"
           />
-          <!--
-        <button
-          type="button"
-          class="btn btn-outline-secondary col-2 m-2"
-          onclick="getNewsByKeyword()"
-          onclick="getNewsByDate()"
-        >
-          search
-        </button>
-        -->
+
           <button type="submit" class="btn btn-outline-secondary col-2 m-2">
             search
           </button>
@@ -103,13 +94,13 @@
       $(document).ready(function () {
         $("#frm").submit(function () {
           if ($("#search-input").val() == "") {
-            alert("검색어를 입력해 주이소오옹오오오~~~");
+            alert("검색어를 입력해주세요");
             $("#search-input").get(0).focus();
             return false;
           }
 
           if ($("#datePicker").val() == "") {
-            alert("날짜도 입력하셔야지예~~~~~~");
+            alert("날짜를 선택해주세요");
             $("#datePicker").get(0).focus();
             return false;
           }
