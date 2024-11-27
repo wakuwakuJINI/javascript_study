@@ -11,7 +11,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <script>
     $(document).ready(function () {
@@ -39,10 +39,10 @@
           });
       }
 
-      $("#writeForm").on("submit", function (e) {
+      $("#writeForm").on("submit", function () {
         // $("#submitBtn").on("click", function()) {
         if (window.location.pathname.includes("/board/write/")) {
-          e.preventDefault();
+          e.preventDefault(); // 기본 제출 동작 막기
           const updateData = {
             seq: $("#seq").val(),
             uname: $("#uname").val(),
@@ -66,8 +66,14 @@
               console.error("수정 요청 실패. URL:", `/api/board/update/${seq}`);
               alert("수정 실패");
             });
+        } else {
+          console.log("새글등록요청");
+          //목록으로가기 버튼이벤트
+          $("#submitBtn").click(function () {
+            window.location.href = "/board/list";
+          });
         }
-        return false; // 서브밋 막아야지 그래야...
+        // return false; // 서브밋 막아야지 그래야...
       });
     });
   </script>
