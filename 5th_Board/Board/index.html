@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/Board/style.css" />
 
     <script>
       $(document).ready(function () {
@@ -28,7 +28,7 @@
               html.push(`<tr>       
             <th scope="row">${data.seq}</th>
             <td>${data.uname}</td>
-            <td><a href="/board/read/${data.seq}">${data.title}</a></td>
+            <td><a href="/board/read/${data.seq}">${data.title}<span class="badge bg-secondary">[${data.commentsCount}]</span></a></td>
             <td>${data.regDate}</td>
             <td>${data.hit}</td>
           </tr>
@@ -50,7 +50,7 @@
     <div class="container">
       <div class="board mt-5 mb-5">
         <h1>게시판</h1>
-        <p>게시판 테스트용입니다.</p>
+        <p>테스트용</p>
       </div>
       <form name="boardList" id="boardList" method="get" action="/board/list">
         <div class="btn-area">
@@ -64,7 +64,20 @@
             <option value="2">작성자</option>
             <option value="3">제목</option>
           </select>
-          <button type="button" class="btn btn-secondary" id="writeBtn">
+          <input type="text" class="searchInput" />
+          <button
+            type="button"
+            class="btn btn-secondary searchBtn"
+            id="searchBtn"
+          >
+            검색
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-secondary writeBtn"
+            id="writeBtn"
+          >
             글쓰기
           </button>
         </div>

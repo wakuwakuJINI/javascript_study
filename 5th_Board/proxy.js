@@ -35,17 +35,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/board/list", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(path.join(__dirname, "Board", "index.html"));
 });
 
 app.get("/board/read/:seq", (req, res) => {
-  res.sendFile(__dirname + "/read.html");
+  res.sendFile(path.join(__dirname, "Board", "/read.html"));
 });
 app.get("/board/write", (req, res) => {
-  res.sendFile(__dirname + "/write.html");
+  res.sendFile(path.join(__dirname, "Board", "/write.html"));
 });
 app.get("/board/write/:seq", (req, res) => {
-  res.sendFile(__dirname + "/write.html");
+  res.sendFile(path.join(__dirname, "Board", "/write.html"));
 });
 
 // 특정 게시글 보기
@@ -82,17 +82,35 @@ app.get("/board/select", async (req, res) => {
         uname,
         title,
         date_format(regDate,'%Y-%m-%d %H:%i:%s') as regDate,
-        hit
+        hit,
+        (SELECT COUNT(*) FROM comments WHERE comments.seq=board.seq) AS commentsCount
         from board`);
     for (const post of data) {
       await connection.execute("UPDATE board SET hit = hit + 1 WHERE seq = ?", [
         post.seq,
       ]);
     }
+
     res.send(data);
   } catch (error) {
     console.error(error);
     res.status(500).send("서버오류");
+  }
+});
+
+// 게시물별 댓글 개수 조회
+app.get("/api/comments/count/:seq", async (req, res) => {
+  const { seq } = req.params;
+
+  try {
+    const [result] = await connection.query(
+      `SELECT COUNT(*) AS commentsCount FROM comments WHERE seq=?`,
+      [seq]
+    );
+    res.json(result[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("댓글 개수 조회 실패");
   }
 });
 //게시물 작성
@@ -120,7 +138,7 @@ app.post("/board/insert", async (req, res) => {
     res.redirect("/board/list");
   } catch (error) {
     console.error(error);
-    res.status(500).send("Insert failed");
+    res.status(500).send("글 등록 실패");
   }
 });
 
@@ -140,6 +158,53 @@ app.put("/api/board/update/:seq", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("수정 실패");
+  }
+});
+
+//삭제하기
+
+app.post("/board/delete", async (req, res) => {
+  const { seq } = req.body;
+  try {
+    await connection.execute(`DELETE FROM board WHERE seq = ?`, [seq]);
+    res.json({ success: true });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: "삭제 실패" });
+  }
+});
+
+//댓글조회
+app.get("/api/comments/:seq", async (req, res) => {
+  const { seq } = req.params;
+
+  try {
+    const [comments] = await connection.query(
+      `SELECT uname,comments,date_format(regDate,'%Y-%m-%d %H:%i:%s') AS regDate,likeCount FROM comments WHERE seq=? ORDER BY regDate ASC`,
+      [seq]
+    );
+    res.json(comments);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("댓글 조회 실패");
+  }
+});
+
+//댓글추가
+app.post("/api/comments/:seq", async (req, res) => {
+  const { seq } = req.params;
+  const { uname, comments } = req.body;
+  const regDate = moment().format("YYYY-MM-DD HH:mm:ss");
+
+  try {
+    await connection.execute(
+      `INSERT INTO comments (seq, uname, comments, regDate, likeCount) VALUES(?,?,?,?,?)`,
+      [seq, uname, comments, regDate, 0]
+    );
+    res.status(201).send("댓글추가 성공");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("댓글 추가 실패");
   }
 });
 

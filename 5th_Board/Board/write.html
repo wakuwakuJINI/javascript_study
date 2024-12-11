@@ -11,7 +11,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/Board/style.css" />
   </head>
   <script>
     $(document).ready(function () {
@@ -39,7 +39,7 @@
           });
       }
 
-      $("#writeForm").on("submit", function () {
+      $("#writeForm").on("submit", function (e) {
         // $("#submitBtn").on("click", function()) {
         if (window.location.pathname.includes("/board/write/")) {
           e.preventDefault(); // 기본 제출 동작 막기
@@ -106,16 +106,6 @@
                   placeholder="이름을 입력하세요"
                 />
               </td>
-              <th scope="row">비밀번호</th>
-              <td>
-                <input
-                  type="password"
-                  name="pw"
-                  id="pw"
-                  class="form-control"
-                  aria-describedby="passwordHelpInline"
-                />
-              </td>
             </tr>
 
             <tr class="item-list">
@@ -149,10 +139,6 @@
           <button type="submit" id="submitBtn" class="btn btn-secondary">
             등록
           </button>
-
-          <!-- <button type="button" id="submitBtn" class="btn btn-secondary">
-            등록
-          </button> -->
         </div>
       </form>
     </div>

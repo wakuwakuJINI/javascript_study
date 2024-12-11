@@ -12,17 +12,28 @@
 }
 .btn-area {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
+
 .selectBtn {
   width: 20%;
 }
 .selectBtn:focus {
   box-shadow: none;
 }
+.searchInput {
+  margin-left: 10px;
+  border-radius: 5px;
+}
+.searchBtn {
+  margin-left: 10px;
+}
 .bottomBtn {
   display: flex;
   justify-content: center;
+}
+.writeBtn {
+  margin-left: auto;
 }
 
 a {
@@ -62,6 +73,14 @@ textarea {
   text-align: center;
   width: 10%;
 }
+.commentInput {
+  box-shadow: none;
+}
+.commentInput:focus {
+  box-shadow: none;
+  border-color: rgb(233, 222, 222);
+}
+
 @media (max-width: 768px) {
   .title-th {
     display: none;
