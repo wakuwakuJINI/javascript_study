@@ -36,6 +36,10 @@
   margin-left: auto;
 }
 
+.badge {
+  background-color: rgb(234, 156, 187);
+  color: black;
+}
 a {
   color: inherit;
   text-decoration: none;
